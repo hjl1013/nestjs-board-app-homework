@@ -1,13 +1,12 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from 'src/auth/auth.module';
-import { BoardRepository } from './board.repository';
+import { PrismaModule } from 'src/prisma/prisma.module';
 import { BoardsController } from './boards.controller';
 import { BoardsService } from './boards.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([BoardRepository]),
+    PrismaModule,
     AuthModule
   ],
   controllers: [BoardsController],
